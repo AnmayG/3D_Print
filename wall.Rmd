@@ -1,0 +1,86 @@
+---
+title: "Impact of Wall Thickness on Strength of Final Print"
+description: |
+  These graphs will discuss the impact that the wall thickness will have on a 3D print.
+author:
+  - name: Anmay Gupta
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(dplyr)
+library(knitr)
+library(rmarkdown)
+library(plotly)
+```
+
+
+Explanation as to what wall thickness actually is.
+
+```{r select_data}
+data <- read_rds("data.rds")
+clean_data <- data %>%
+                select(wall_thickness, roughness, material, tension_strength, elongation) %>%
+                arrange(wall_thickness) %>% 
+                mutate(trial_number = row_number()) %>%
+                mutate(is_rough = roughness > 200)
+```
+
+Effect of Wall Thickness on Roughness:
+
+```{r roughness}
+roughness <- clean_data %>%
+               ggplot(aes(x = trial_number, y = roughness, fill = wall_thickness)) +
+               geom_col() +
+               facet_wrap(~ material) +
+               geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
+               labs(title = "Effect of Wall Thickness on Roughness",
+                    subtitle = "The higher the wall thickness, the more likely the printer\nis to make mistakes and create a rougher surface.",
+                    x = "Trial Number",
+                    y = "Roughness (µm)",
+                    fill = "Wall Thickness (mm)",
+                    caption = "Source: Selcuk University, February 26th 2019")
+roughness
+write_rds(roughness, "wall1.rds")
+```
+
+Effect on Tension Strength:
+
+```{r tension}
+tension <- clean_data %>%
+             ggplot(aes(x = trial_number, y = tension_strength, fill = wall_thickness)) +
+             geom_col() +
+             facet_wrap(~ material) +
+             geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
+             labs(title = "Effect of Wall Thickness on Tension Strength",
+                    subtitle = "The higher the wall thickness, the more likely the print is to\nsustain a high load.",
+                  x = "Trial Number",
+                  y = "Tension Strength (MPa)",
+                  fill = "Wall Thickness (mm)",
+                  caption = "Source: Selcuk University, February 26th 2019")
+tension
+write_rds(tension, "wall2.rds")
+```
+
+Effect on Elongation:
+
+```{r elongation}
+elongon <- clean_data %>%
+             ggplot(aes(x = trial_number, y = elongation, fill = wall_thickness)) +
+             geom_col() +
+             facet_wrap(~ material) +
+             geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
+             labs(title = "Effect of Wall Thickness on Elongation Percentage",
+                  subtitle = "The print is more likely to elongate and deform when there are\n6mm of wall.",
+                  x = "Trial Number",
+                  y = "Elongation (%)",
+                  fill = "Wall Thickness (mm)",
+                  caption = "Source: Selcuk University, February 26th 2019")
+elongon
+write_rds(elongon, "wall3.rds")
+```
+
+

@@ -1,12 +1,9 @@
 ---
-title: "Untitled"
+title: "Impact of Layer Height on Strength of Final Print"
 description: |
-  A new article created using the Distill format.
+  These graphs will discuss the impact that the layer height will have on a 3D print.
 author:
-  - name: Nora Jones 
-    url: https://example.com/norajones
-    affiliation: Spacely Sprockets
-    affiliation_url: https://example.com/spacelysprokets
+  - name: Anmay Gupta
 date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
@@ -17,14 +14,13 @@ library(tidyverse)
 library(dplyr)
 library(knitr)
 library(rmarkdown)
+library(plotly)
 ```
 
-```{r get_data}
-data <- read_rds("data.rds")
-paged_table(data, options(cols.print = 12))
-```
+Explanation as to what layer height actually is.
 
 ```{r select_data}
+data <- read_rds("data.rds")
 clean_data <- data %>%
                 select(layer_height, roughness, material, tension_strength, elongation) %>%
                 arrange(layer_height) %>% 
@@ -32,37 +28,59 @@ clean_data <- data %>%
                 mutate(is_rough = roughness > 200)
 ```
 
-```{r graph_data, clean_data}
-clean_data %>%
-  ggplot(aes(x = trial_number, y = roughness, fill = layer_height)) +
-  geom_col() +
-  facet_wrap(~ material) +
-  geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
-  labs(title = "Effect of Layer Height on Roughness",
-       subtitle = "The higher the layer height, the more likely the printer\nis to make mistakes and create a rougher surface.",
-       x = "Trial Number",
-       y = "Roughness (µm)",
-       fill = "Layer Height (mm)")
+Effect of Layer Height on Roughness:
+
+```{r roughness}
+roughness <- clean_data %>%
+               ggplot(aes(x = trial_number, y = roughness, fill = layer_height)) +
+               geom_col() +
+               facet_wrap(~ material) +
+               geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
+               labs(title = "Effect of Layer Height on Roughness",
+                    subtitle = "The higher the layer height, the more likely the printer\nis to make mistakes and create a rougher surface.",
+                    x = "Trial Number",
+                    y = "Roughness (µm)",
+                    fill = "Layer Height (mm)",
+                    caption = "Source: Selcuk University, February 26th 2019")
+roughness
+write_rds(roughness, "layer1.rds")
 ```
 
-```{r graph_data}
-clean_data %>%
-  ggplot(aes(x = trial_number, y = tension_strength, fill = layer_height)) +
-  geom_col() +
-  facet_wrap(~ material) +
-  geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
-  labs(title = "Effect of Layer Height on Elongation Strength",
-       subtitle = "The higher the layer height, the more likely the printer\nis to make mistakes and create a rougher surface.",
-       x = "Trial Number",
-       y = "Tension Strength (MPa)",
-       fill = "Layer Height (mm)")
+Effect on Tension Strength:
+
+```{r tension}
+tension <- clean_data %>%
+             ggplot(aes(x = trial_number, y = tension_strength, fill = layer_height)) +
+             geom_col() +
+             facet_wrap(~ material) +
+             geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
+             labs(title = "Effect of Layer Height on Tension Strength",
+                    subtitle = "The higher the layer height, the more likely the print is to\nsustain a high load.",
+                  x = "Trial Number",
+                  y = "Tension Strength (MPa)",
+                  fill = "Layer Height (mm)",
+                  caption = "Source: Selcuk University, February 26th 2019")
+tension
+write_rds(tension, "layer2.rds")
 ```
 
-Distill is a publication format for scientific and technical writing, native to the web. 
+Effect on Elongation:
 
-Learn more about using Distill for R Markdown at <https://rstudio.github.io/distill>.
-
-
+```{r elongation}
+elongon <- clean_data %>%
+             ggplot(aes(x = trial_number, y = elongation, fill = layer_height)) +
+             geom_col() +
+             facet_wrap(~ material) +
+             geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
+             labs(title = "Effect of Layer Height on Elongation Percentage",
+                  subtitle = "The higher the wall thickness, the more likely the print is to\nelongate and deform.",
+                  x = "Trial Number",
+                  y = "Elongation (%)",
+                  fill = "Layer Height (mm)",
+                  caption = "Source: Selcuk University, February 26th 2019")
+elongon
+write_rds(elongon, "layer3.rds")
+```
 
 
 

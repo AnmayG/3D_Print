@@ -9,6 +9,10 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
-    - text: "Layer Height"
-      href: layer.html
+    - text: "Graphs"
+      menu:
+      - text: "Layer Height"
+        href: layer.html
+      - text: "Wall Thickness"
+        href: wall.html
 output: distill::distill_article

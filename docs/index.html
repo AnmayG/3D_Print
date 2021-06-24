@@ -88,27 +88,27 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>3D Print Analysis</title>
 
-  <meta property="description" itemprop="description" content="Welcome to the website. I hope you enjoy it!"/>
+  <meta property="description" itemprop="description" content="This project examines the factors that can increase the strength and quality of a 3D print."/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="3D Print Analysis"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Welcome to the website. I hope you enjoy it!"/>
+  <meta property="og:description" content="This project examines the factors that can increase the strength and quality of a 3D print."/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="3D Print Analysis"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="3D Print Analysis"/>
-  <meta property="twitter:description" content="Welcome to the website. I hope you enjoy it!"/>
+  <meta property="twitter:description" content="This project examines the factors that can increase the strength and quality of a 3D print."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site"]}},"value":[{"type":"character","attributes":{},"value":["3D Print Analysis"]},{"type":"character","attributes":{},"value":["Welcome to the website. I hope you enjoy it!\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site"]}},"value":[{"type":"character","attributes":{},"value":["3D Print Analysis"]},{"type":"character","attributes":{},"value":["This project examines the factors that can increase the strength and quality of a 3D print.\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2034,6 +2034,25 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+  <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+  <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+  <style>h1 {font-size: 34px;}
+         h1.title {font-size: 38px;}
+         h2 {font-size: 30px;}
+         h3 {font-size: 24px;}
+         h4 {font-size: 18px;}
+         h5 {font-size: 16px;}
+         h6 {font-size: 12px;}
+         code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+         pre:not([class]) { background-color: white }</style>
+  <script src="site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+  <link href="site_libs/bootstrap-select-1.12.1/dist/css/bootstrap-select.min.css" rel="stylesheet" />
+  <script src="site_libs/bootstrap-select-1.12.1/dist/js/bootstrap-select.min.js"></script>
+  <script src="site_libs/bsselect-binding-0.1.0/bsselect.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2053,7 +2072,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"3D Print Analysis","description":"Welcome to the website. I hope you enjoy it!","authors":[]}
+{"title":"3D Print Analysis","description":"This project examines the factors that can increase the strength and quality of a 3D print.","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2064,7 +2083,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <a href="index.html" class="title">3D Print Analysis</a>
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
-<span class="nav-dropdown-header">Layer Height</span>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Graphs
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="layer.html">Layer Height</a>
+<a href="wall.html">Wall Thickness</a>
+</div>
+</div>
 </div>
 <div class="nav-right">
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2079,11 +2108,40 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h1>3D Print Analysis</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Welcome to the website. I hope you enjoy it!</p></p>
+<p><p>This project examines the factors that can increase the strength and quality of a 3D print.</p></p>
 </div>
 
 
 <div class="d-article">
+<p>This is essentially an animation of the data and how every setting can create a change in the final product’s strength. Columns to the right of the line are properties of the print while columns to the left are the settings that constructed the print.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="total.gif" /><!-- --></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>Each factor has its own unique effect on the strength and quality of the 3D print.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+<html>
+<select id="2AB8vlTlXm" class="selectpicker" data-dropdown-align-right="false" data-dropup-auto="true" data-header="false" data-live-search="false" data-live-search-style="contains" data-show-tick="true" data-width="false" data-size="auto"><option value="images/layer1.png">Layer Height and Roughness</option>
+<option value="images/layer2.png">Layer Height and Tension Strength</option>
+<option value="images/layer3.png">Layer Height and Elongation</option>
+<option value="images/wall1.png">Wall Thickness and Roughness</option>
+<option value="images/wall2.png">Wall Thickness and Tension Strength</option>
+<option value="images/wall3.png">Wall Thickness and Elongation</option></select>
+<img src="images/layer1.png" name="vqMd8bHMJ4" height="500" width="100%"/>
+<script>$(document).ready(function(){
+                 $("#2AB8vlTlXm").change(function(){
+                 $("img[name=vqMd8bHMJ4]").attr("src",$(this).val());
+
+                 });
+
+  });</script>
+</html>
+<div id="htmlwidget-ad6e4a25c2445f4a12c9" style="width:624px;height:384px;" class="bsselect html-widget" width="624" height="384"></div>
+<script type="application/json" data-for="htmlwidget-ad6e4a25c2445f4a12c9">{"x":[],"evals":[],"jsHooks":[]}</script>
+</div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
