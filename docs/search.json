@@ -6,15 +6,15 @@
       "description": "Some additional details about the website",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-06-24T17:15:12-05:00"
+      "last_modified": "2021-06-24T17:22:23-05:00"
     },
     {
       "path": "index.html",
       "title": "3D Print Analysis",
       "description": "This project examines the factors that can increase the strength and quality of a 3D print.\n",
       "author": [],
-      "contents": "\r\nThis is essentially an animation of the data and how every setting can create a change in the final product’s strength. Columns to the right of the line are properties of the print while columns to the left are the settings that constructed the print.\r\n\r\n\r\n\r\n\r\n\r\n\r\nEach factor has its own unique effect on the strength and quality of the 3D print.\r\n\r\n\r\n\r\nLayer Height and RoughnessLayer Height and Tension StrengthLayer Height and ElongationWall Thickness and RoughnessWall Thickness and Tension StrengthWall Thickness and Elongation$(document).ready(function(){\r\n                 $(\"#2AB8vlTlXm\").change(function(){\r\n                 $(\"img[name=vqMd8bHMJ4]\").attr(\"src\",$(this).val());\r\n\r\n                 });\r\n\r\n  });\r\n{\"x\":[],\"evals\":[],\"jsHooks\":[]}\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-06-24T17:15:12-05:00"
+      "contents": "\r\nThis is essentially an animation of the data and how every setting can create a change in the final product’s strength. Columns to the right of the line are properties of the print while columns to the left are the settings that constructed the print.\r\n\r\n\r\n\r\n\r\n\r\n\r\nEach factor has its own unique effect on the strength and quality of the 3D print.\r\n\r\n\r\n\r\nLayer Height and RoughnessLayer Height and Tension StrengthLayer Height and ElongationWall Thickness and RoughnessWall Thickness and Tension StrengthWall Thickness and Elongation$(document).ready(function(){\r\n                 $(\"#Uy8KtU7w4H\").change(function(){\r\n                 $(\"img[name=9JT6oTHPEA]\").attr(\"src\",$(this).val());\r\n\r\n                 });\r\n\r\n  });\r\n{\"x\":[],\"evals\":[],\"jsHooks\":[]}\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-06-24T17:22:22-05:00"
     },
     {
       "path": "layer.html",
