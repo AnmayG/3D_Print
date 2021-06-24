@@ -1,0 +1,14 @@
+name: "."
+title: "3D Print Analysis"
+description: |
+  3D Print Analysis
+output_dir: "docs"
+navbar:
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - text: "Layer Height"
+      href: layer.html
+output: distill::distill_article

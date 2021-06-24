@@ -1,0 +1,68 @@
+---
+title: "Untitled"
+description: |
+  A new article created using the Distill format.
+author:
+  - name: Nora Jones 
+    url: https://example.com/norajones
+    affiliation: Spacely Sprockets
+    affiliation_url: https://example.com/spacelysprokets
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(dplyr)
+library(knitr)
+library(rmarkdown)
+```
+
+```{r get_data}
+data <- read_rds("data.rds")
+paged_table(data, options(cols.print = 12))
+```
+
+```{r select_data}
+clean_data <- data %>%
+                select(layer_height, roughness, material, tension_strength, elongation) %>%
+                arrange(layer_height) %>% 
+                mutate(trial_number = row_number()) %>%
+                mutate(is_rough = roughness > 200)
+```
+
+```{r graph_data, clean_data}
+clean_data %>%
+  ggplot(aes(x = trial_number, y = roughness, fill = layer_height)) +
+  geom_col() +
+  facet_wrap(~ material) +
+  geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
+  labs(title = "Effect of Layer Height on Roughness",
+       subtitle = "The higher the layer height, the more likely the printer\nis to make mistakes and create a rougher surface.",
+       x = "Trial Number",
+       y = "Roughness (µm)",
+       fill = "Layer Height (mm)")
+```
+
+```{r graph_data}
+clean_data %>%
+  ggplot(aes(x = trial_number, y = tension_strength, fill = layer_height)) +
+  geom_col() +
+  facet_wrap(~ material) +
+  geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
+  labs(title = "Effect of Layer Height on Elongation Strength",
+       subtitle = "The higher the layer height, the more likely the printer\nis to make mistakes and create a rougher surface.",
+       x = "Trial Number",
+       y = "Tension Strength (MPa)",
+       fill = "Layer Height (mm)")
+```
+
+Distill is a publication format for scientific and technical writing, native to the web. 
+
+Learn more about using Distill for R Markdown at <https://rstudio.github.io/distill>.
+
+
+
+
+
