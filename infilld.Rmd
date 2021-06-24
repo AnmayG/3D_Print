@@ -1,7 +1,7 @@
 ---
-title: "Impact of Wall Thickness on Strength of Final Print"
+title: "Impact of Infill Density on Strength of Final Print"
 description: |
-  These graphs will discuss the impact that the wall thickness will have on a 3D print.
+  These graphs will discuss the impact that the infill density will have on a 3D print.
 author:
   - name: Anmay Gupta
 date: "`r Sys.Date()`"
@@ -18,30 +18,30 @@ library(plotly)
 ```
 
 
-Explanation as to what wall thickness actually is.
+Explanation as to what infill density actually is.
 
 ```{r select_data}
 data <- read_rds("data.rds")
 clean_data <- data %>%
-                select(wall_thickness, roughness, material, tension_strength, elongation) %>%
-                arrange(wall_thickness) %>% 
+                select(infill_density, roughness, material, tension_strength, elongation) %>%
+                arrange(infill_density) %>% 
                 mutate(trial_number = row_number()) %>%
                 mutate(is_rough = roughness > 200)
 ```
 
-Effect of Wall Thickness on Roughness:
+Effect of Infill Density on Roughness:
 
 ```{r roughness}
 roughness <- clean_data %>%
-               ggplot(aes(x = trial_number, y = roughness, fill = wall_thickness)) +
+               ggplot(aes(x = trial_number, y = roughness, fill = infill_density)) +
                geom_col() +
                facet_wrap(~ material) +
                geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
-               labs(title = "Effect of Wall Thickness on Roughness",
-                    subtitle = "When the wall thickness is higher, the printer is more likely toelongate and deform.",
+               labs(title = "Effect of Infill Density on Roughness",
+                    subtitle = "When the infill density is at 50%, the printer is more\nlikely to make mistakes and create a rougher surface.",
                     x = "Trial Number",
                     y = "Roughness (µm)",
-                    fill = "Wall Thickness (mm)",
+                    fill = "Infill Density (mm)",
                     caption = "Source: Selcuk University, February 26th 2019")
 roughness
 write_rds(roughness, "wall1.rds")
@@ -51,15 +51,15 @@ Effect on Tension Strength:
 
 ```{r tension}
 tension <- clean_data %>%
-             ggplot(aes(x = trial_number, y = tension_strength, fill = wall_thickness)) +
+             ggplot(aes(x = trial_number, y = tension_strength, fill = infill_density)) +
              geom_col() +
              facet_wrap(~ material) +
              geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
-             labs(title = "Effect of Wall Thickness on Tension Strength",
-                  subtitle = "When the wall thickness is higher, the print is more likely to\nsustain a high load.",
+             labs(title = "Effect of Infill Density on Tension Strength",
+                    subtitle = "When the infill density is higher, the print is more likely to\nsustain a high load.",
                   x = "Trial Number",
                   y = "Tension Strength (MPa)",
-                  fill = "Wall Thickness (mm)",
+                  fill = "Infill Density (mm)",
                   caption = "Source: Selcuk University, February 26th 2019")
 tension
 write_rds(tension, "wall2.rds")
@@ -69,15 +69,15 @@ Effect on Elongation:
 
 ```{r elongation}
 elongon <- clean_data %>%
-             ggplot(aes(x = trial_number, y = elongation, fill = wall_thickness)) +
+             ggplot(aes(x = trial_number, y = elongation, fill = infill_density)) +
              geom_col() +
              facet_wrap(~ material) +
              geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
-             labs(title = "Effect of Wall Thickness on Elongation Percentage",
-                  subtitle = "When the wall thickness is 6mm, the print is more likely to\nelongate and deform.",
+             labs(title = "Effect of Infill Density on Elongation Percentage",
+                  subtitle = "When the infill density is higher, the print is more likely to\elongate and deform.",
                   x = "Trial Number",
                   y = "Elongation (%)",
-                  fill = "Wall Thickness (mm)",
+                  fill = "Infill Density (mm)",
                   caption = "Source: Selcuk University, February 26th 2019")
 elongon
 write_rds(elongon, "wall3.rds")
