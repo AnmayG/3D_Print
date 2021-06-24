@@ -44,7 +44,7 @@ roughness <- clean_data %>%
                     fill = "Infill Density (mm)",
                     caption = "Source: Selcuk University, February 26th 2019")
 roughness
-write_rds(roughness, "wall1.rds")
+ggsave("images/infilld1.png", roughness)
 ```
 
 Effect on Tension Strength:
@@ -62,7 +62,7 @@ tension <- clean_data %>%
                   fill = "Infill Density (mm)",
                   caption = "Source: Selcuk University, February 26th 2019")
 tension
-write_rds(tension, "wall2.rds")
+ggsave("images/infilld2.png", tension)
 ```
 
 Effect on Elongation:
@@ -80,7 +80,7 @@ elongon <- clean_data %>%
                   fill = "Infill Density (mm)",
                   caption = "Source: Selcuk University, February 26th 2019")
 elongon
-write_rds(elongon, "wall3.rds")
+ggsave("images/infilld3.png", elongon)
 ```
 
 

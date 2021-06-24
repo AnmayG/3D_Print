@@ -43,7 +43,7 @@ roughness <- clean_data %>%
                     fill = "Layer Height (mm)",
                     caption = "Source: Selcuk University, February 26th 2019")
 roughness
-write_rds(roughness, "layer1.rds")
+ggsave("images/layer1.png", roughness)
 ```
 
 Effect on Tension Strength:
@@ -61,7 +61,7 @@ tension <- clean_data %>%
                   fill = "Layer Height (mm)",
                   caption = "Source: Selcuk University, February 26th 2019")
 tension
-write_rds(tension, "layer2.rds")
+ggsave("images/layer2.png", tension)
 ```
 
 Effect on Elongation:
@@ -79,7 +79,7 @@ elongon <- clean_data %>%
                   fill = "Layer Height (mm)",
                   caption = "Source: Selcuk University, February 26th 2019")
 elongon
-write_rds(elongon, "layer3.rds")
+ggsave("images/layer3.png", elongon)
 ```
 
 

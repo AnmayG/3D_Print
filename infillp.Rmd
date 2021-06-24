@@ -1,0 +1,83 @@
+---
+title: "Impact of Infill Pattern on Strength of Final Print"
+description: |
+  These graphs will discuss the impact that the infill pattern will have on a 3D print.
+author:
+  - name: Anmay Gupta
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(dplyr)
+library(knitr)
+library(rmarkdown)
+library(plotly)
+```
+
+Explanation as to what infill pattern actually is.
+
+```{r select_data}
+data <- read_rds("data.rds")
+clean_data <- data %>%
+                select(infill_pattern, roughness, material, tension_strength, elongation) %>%
+                arrange(infill_pattern) %>% 
+                mutate(trial_number = row_number()) %>%
+                mutate(is_rough = roughness > 200)
+```
+
+Effect of Infill Pattern on Roughness:
+
+```{r roughness}
+roughness <- clean_data %>%
+               ggplot(aes(x = trial_number, y = roughness, fill = infill_pattern)) +
+               geom_col() +
+               facet_wrap(~ material + infill_pattern, scales = "free_x") +
+  geom_smooth() +
+               labs(title = "Effect of Infill Pattern on Roughness",
+                    subtitle = "With a honeycomb infill pattern, PLA prints become more rough.",
+                    x = "Trial Number",
+                    y = "Roughness (µm)",
+                    fill = "Infill Pattern (mm)",
+                    caption = "Source: Selcuk University, February 26th 2019")
+roughness
+ggsave("images/infillp1.png", roughness)
+```
+
+Effect on Tension Strength:
+
+```{r tension}
+tension <- clean_data %>%
+             ggplot(aes(x = trial_number, y = tension_strength, fill = infill_pattern)) +
+             geom_col() +
+             facet_wrap(~ material + infill_pattern, scales = "free_x") +
+             labs(title = "Effect of Infill Pattern on Tension Strength",
+                    subtitle = "With a honeycomb infill pattern, PLA prints become stronger.",
+                  x = "Trial Number",
+                  y = "Tension Strength (MPa)",
+                  fill = "Infill Pattern (mm)",
+                  caption = "Source: Selcuk University, February 26th 2019")
+tension
+ggsave("images/infillp2.png", tension)
+```
+
+Effect on Elongation:
+
+```{r elongation}
+elongon <- clean_data %>%
+             ggplot(aes(x = trial_number, y = elongation, fill = infill_pattern)) +
+             geom_col() +
+             facet_wrap(~ material + infill_pattern, scales = "free_x") +
+             labs(title = "Effect of Infill Pattern on Elongation Percentage",
+                  subtitle = "The infill pattern does not affect elongation.",
+                  x = "Trial Number",
+                  y = "Elongation (%)",
+                  fill = "Infill Pattern (mm)",
+                  caption = "Source: Selcuk University, February 26th 2019")
+elongon
+ggsave("images/infillp3.png", elongon)
+```
+
+

@@ -15,4 +15,10 @@ navbar:
         href: layer.html
       - text: "Wall Thickness"
         href: wall.html
+      - text: "Infill Density"
+        href: infilld.html
+      - text: "Infill Pattern"
+        href: infillp.html
+      - text: "Nozzle Temperature"
+        href: nozzle.html
 output: distill::distill_article

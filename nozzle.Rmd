@@ -1,7 +1,7 @@
 ---
-title: "Impact of Wall Thickness on Strength of Final Print"
+title: "Impact of Nozzle Temperature on Strength of Final Print"
 description: |
-  These graphs will discuss the impact that the wall thickness will have on a 3D print.
+  These graphs will discuss the impact that the nozzle temperature will have on a 3D print.
 author:
   - name: Anmay Gupta
 date: "`r Sys.Date()`"
@@ -18,66 +18,66 @@ library(plotly)
 ```
 
 
-Explanation as to what wall thickness actually is.
+Explanation as to what nozzle temperature actually is.
 
 ```{r select_data}
 data <- read_rds("data.rds")
 clean_data <- data %>%
-                select(wall_thickness, roughness, material, tension_strength, elongation) %>%
-                arrange(wall_thickness) %>% 
+                select(nozzle_temperature, roughness, material, tension_strength, elongation) %>%
+                arrange(nozzle_temperature) %>% 
                 mutate(trial_number = row_number()) %>%
                 mutate(is_rough = roughness > 200)
 ```
 
-Effect of Wall Thickness on Roughness:
+Effect of Nozzle Temperature on Roughness:
 
 ```{r roughness}
 roughness <- clean_data %>%
-               ggplot(aes(x = trial_number, y = roughness, fill = wall_thickness)) +
+               ggplot(aes(x = trial_number, y = roughness, fill = nozzle_temperature)) +
                geom_col() +
                facet_wrap(~ material) +
                geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
-               labs(title = "Effect of Wall Thickness on Roughness",
-                    subtitle = "When the wall thickness is higher, the printer is more likely toelongate and deform.",
+               labs(title = "Effect of Nozzle Temperature on Roughness",
+                    subtitle = "PLA prints have a higher quality at a lower temperature while\nABS prints have a higher quality at a higher temperature.",
                     x = "Trial Number",
                     y = "Roughness (µm)",
-                    fill = "Wall Thickness (mm)",
+                    fill = "Nozzle Temperature (mm)",
                     caption = "Source: Selcuk University, February 26th 2019")
 roughness
-ggsave("images/wall1.png", roughness)
+ggsave("images/nozzle1.png", roughness)
 ```
 
 Effect on Tension Strength:
 
 ```{r tension}
 tension <- clean_data %>%
-             ggplot(aes(x = trial_number, y = tension_strength, fill = wall_thickness)) +
+             ggplot(aes(x = trial_number, y = tension_strength, fill = nozzle_temperature)) +
              geom_col() +
              facet_wrap(~ material) +
              geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
-             labs(title = "Effect of Wall Thickness on Tension Strength",
-                  subtitle = "When the wall thickness is higher, the print is more likely to\nsustain a high load.",
+             labs(title = "Effect of Nozzle Temperature on Tension Strength",
+                    subtitle = "PLA prints have a higher strength at a higher temperature while\nABS prints have a higher strength at a medium temperature.",
                   x = "Trial Number",
                   y = "Tension Strength (MPa)",
-                  fill = "Wall Thickness (mm)",
+                  fill = "Nozzle Temperature (mm)",
                   caption = "Source: Selcuk University, February 26th 2019")
 tension
-ggsave("images/wall2.png", tension)
+ggsave("images/nozzle2.png", tension)
 ```
 
 Effect on Elongation:
 
 ```{r elongation}
 elongon <- clean_data %>%
-             ggplot(aes(x = trial_number, y = elongation, fill = wall_thickness)) +
+             ggplot(aes(x = trial_number, y = elongation, fill = nozzle_temperature)) +
              geom_col() +
              facet_wrap(~ material) +
              geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
-             labs(title = "Effect of Wall Thickness on Elongation Percentage",
-                  subtitle = "When the wall thickness is 6mm, the print is more likely to\nelongate and deform.",
+             labs(title = "Effect of Nozzle Temperature on Elongation Percentage",
+                  subtitle = "PLA prints deform more at a higher temperature while\nABS prints deform less at a higher temperature.",
                   x = "Trial Number",
                   y = "Elongation (%)",
-                  fill = "Wall Thickness (mm)",
+                  fill = "Nozzle Temperature (mm)",
                   caption = "Source: Selcuk University, February 26th 2019")
 elongon
 ggsave("images/wall3.png", elongon)

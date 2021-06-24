@@ -30,20 +30,6 @@ knitr::include_graphics("total.gif")
 ```
 
 ```{r pull_and_save}
-layer1 <- read_rds("layer1.rds")
-layer2 <- read_rds("layer2.rds")
-layer3 <- read_rds("layer3.rds")
-ggsave("images/layer1.png", layer1)
-ggsave("images/layer2.png", layer2)
-ggsave("images/layer3.png", layer3)
-
-wall1 <- read_rds("wall1.rds")
-wall2 <- read_rds("wall2.rds")
-wall3 <- read_rds("wall3.rds")
-ggsave("images/wall1.png", wall1)
-ggsave("images/wall2.png", wall2)
-ggsave("images/wall3.png", wall3)
-
 plots <- c(`Layer Height and Roughness` = "images/layer1.png",
            `Layer Height and Tension Strength` = "images/layer2.png",
            `Layer Height and Elongation` = "images/layer3.png",
