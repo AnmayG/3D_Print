@@ -8,3 +8,19 @@ description: |
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+## About Me
+
+**I'm Anmay Gupta, a rising sophomore at James B. Conant High School, graduating in 2023.**
+
+```{r}
+knitr::include_graphics("images/me.jpg")
+```
+
+## About the Project
+
+*3D Print Project*
+
+This is a project about how every factor of a 3D print can change how strong and how high quality it is, and examining the relationships between them.
+
+This project was made as part of 
+[Kane's Free High School Data Science Bootcamp](https://bootcamp.davidkane.info/)

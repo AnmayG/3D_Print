@@ -1,0 +1,33 @@
+---
+title: "Data"
+description: |
+  This is a description of the data that I used.
+author:
+  - name: Anmay Gupta
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(rmarkdown)
+library(tidyverse)
+```
+
+I used data from a 2019 experiment in Selcuk University about using an Ultimake S5 3-D printer that simply did a large number of test prints with different settings and filaments.
+
+Below is an animation of the data and how every setting can create a change in the final product's strength.
+Columns to the right of the line are properties of the print while columns to the left are the settings that constructed the print.
+
+```{r gif}
+knitr::include_graphics("total.gif")
+```
+
+We can also look at the data itself.
+
+```{r}
+data_thing <- read_rds("data.rds")
+paged_table(data_thing)
+```
+
+This makes up the data of my project, and I'll be going into it in more depth later.

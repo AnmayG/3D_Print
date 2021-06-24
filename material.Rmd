@@ -1,0 +1,84 @@
+---
+title: "Impact of Material on Strength of Final Print"
+description: |
+  These graphs will discuss the impact that the material will have on a 3D print.
+author:
+  - name: Anmay Gupta
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(dplyr)
+library(knitr)
+library(rmarkdown)
+library(plotly)
+```
+
+
+Explanation as to what material actually is.
+
+```{r select_data}
+data <- read_rds("data.rds")
+clean_data <- data %>%
+                select(material, roughness, material, tension_strength, elongation) %>%
+                arrange(material) %>% 
+                mutate(trial_number = row_number()) %>%
+                mutate(is_rough = roughness > 200)
+```
+
+Effect of Material on Roughness:
+
+```{r roughness}
+roughness <- clean_data %>%
+               ggplot(aes(x = trial_number, y = roughness, fill = material)) +
+               geom_col() +
+               facet_wrap(~ material, scale = "free_x") +
+               labs(title = "Effect of Material on Roughness",
+                    subtitle = "ABS is much rougher than PLA on the same or similar\n print settings.",
+                    x = "Trial Number",
+                    y = "Roughness (µm)",
+                    fill = "Material",
+                    caption = "Source: Selcuk University, February 26th 2019")
+roughness
+ggsave("images/material1.png", roughness)
+```
+
+Effect on Tension Strength:
+
+```{r tension}
+tension <- clean_data %>%
+             ggplot(aes(x = trial_number, y = tension_strength, fill = material)) +
+             geom_col() +
+             facet_wrap(~ material, scale = "free_x") +
+             labs(title = "Effect of Material on Tension Strength",
+                    subtitle = "PLA is stronger overall, but ABS can be stronger\nwhen it has the right settings.",
+                  x = "Trial Number",
+                  y = "Tension Strength (MPa)",
+                  fill = "Material",
+                  caption = "Source: Selcuk University, February 26th 2019")
+tension
+ggsave("images/material2.png", tension)
+```
+
+Effect on Elongation:
+
+```{r elongation}
+elongon <- clean_data %>%
+             ggplot(aes(x = trial_number, y = elongation, fill = material)) +
+             geom_col() +
+             facet_wrap(~ material, scale = "free_x") +
+             geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
+             labs(title = "Effect of Material on Elongation Percentage",
+                  subtitle = "Overall, ABS is much less likely to deform than PLA,\nonly deforming at the same level as or less than PLA.",
+                  x = "Trial Number",
+                  y = "Elongation (%)",
+                  fill = "Material",
+                  caption = "Source: Selcuk University, February 26th 2019")
+elongon
+ggsave("images/material3.png", elongon)
+```
+
+

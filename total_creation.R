@@ -14,6 +14,7 @@ data <- data %>%
   mutate(wall_thickness = wall_thickness*10) %>%
   mutate(elongation = elongation*10)
 
+
 V1 <- c("Layer\nHeight(pm)", "Wall\nThickness(µm)", "Infill\nDensity(%)", "Infill\nPattern",
         "Nozzle\nTemperature(°C)", "Bed\nTemperature(°C)", "Print\nSpeed(mm/s)", 
         "Material", "Fan\nSpeed(%)", "Roughness(mm)", "Tension\nStrength(MPa)", 

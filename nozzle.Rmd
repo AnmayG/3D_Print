@@ -41,7 +41,7 @@ roughness <- clean_data %>%
                     subtitle = "PLA prints have a higher quality at a lower temperature while\nABS prints have a higher quality at a higher temperature.",
                     x = "Trial Number",
                     y = "Roughness (µm)",
-                    fill = "Nozzle Temperature (mm)",
+                    fill = "Nozzle Temperature (°C)",
                     caption = "Source: Selcuk University, February 26th 2019")
 roughness
 ggsave("images/nozzle1.png", roughness)
@@ -59,7 +59,7 @@ tension <- clean_data %>%
                     subtitle = "PLA prints have a higher strength at a higher temperature while\nABS prints have a higher strength at a medium temperature.",
                   x = "Trial Number",
                   y = "Tension Strength (MPa)",
-                  fill = "Nozzle Temperature (mm)",
+                  fill = "Nozzle Temperature (°C)",
                   caption = "Source: Selcuk University, February 26th 2019")
 tension
 ggsave("images/nozzle2.png", tension)
@@ -77,7 +77,7 @@ elongon <- clean_data %>%
                   subtitle = "PLA prints deform more at a higher temperature while\nABS prints deform less at a higher temperature.",
                   x = "Trial Number",
                   y = "Elongation (%)",
-                  fill = "Nozzle Temperature (mm)",
+                  fill = "Nozzle Temperature (°C)",
                   caption = "Source: Selcuk University, February 26th 2019")
 elongon
 ggsave("images/wall3.png", elongon)

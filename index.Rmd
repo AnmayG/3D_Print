@@ -22,25 +22,59 @@ library(plotly)
 library(bsselectR)
 ```
 
-This is essentially an animation of the data and how every setting can create a change in the final product's strength.
-Columns to the right of the line are properties of the print while columns to the left are the settings that constructed the print.
+<text size = "15">
+3D printing is one of the coolest high-tech products there is, and it's revolutionized our world.
 
-```{r gif}
-knitr::include_graphics("total.gif")
-```
+So what actually makes a 3D print strong?
 
-```{r pull_and_save}
+After examining the data, we found that each factor has its own unique effect on the strength and quality of the 3D print.
+
+Currently, the best print uses:
+* 0.06 mm Layer Height
+* 5 mm Wall Thickness
+* 90% Infill Density
+* A Grid Infill Pattern
+* 215°C Nozzle Temperature
+* 95°C Bed Temperature
+* 60 mm/s Print Speed
+* PLA Filament
+* And 75% Fan Speed
+
+If you're looking for pure tension strength, having a lower layer height and a high infill density is the best because they allow you to 
+</text>
+
+```{r pull_and_save, include = FALSE}
 plots <- c(`Layer Height and Roughness` = "images/layer1.png",
            `Layer Height and Tension Strength` = "images/layer2.png",
            `Layer Height and Elongation` = "images/layer3.png",
            `Wall Thickness and Roughness` = "images/wall1.png",
            `Wall Thickness and Tension Strength` = "images/wall2.png",
-           `Wall Thickness and Elongation` = "images/wall3.png")
+           `Wall Thickness and Elongation` = "images/wall3.png",
+           `Infill Density and Roughness` = "images/infilld1.png",
+           `Infill Density and Tension Strength` = "images/infilld2.png",
+           `Infill Density and Elongation` = "images/infilld3.png",
+           `Infill Pattern and Roughness` = "images/infillp1.png",
+           `Infill Pattern and Tension Strength` = "images/infillp2.png",
+           `Infill Pattern and Elongation` = "images/infillp3.png",
+           `Nozzle Temperature and Roughness` = "images/nozzle1.png",
+           `Nozzle Temperature and Tension Strength` = "images/nozzle2.png",
+           `Nozzle Temperature and Elongation` = "images/nozzle3.png",
+           `Bed Temperature and Roughness` = "images/bed1.png",
+           `Bed Temperature and Tension Strength` = "images/bed2.png",
+           `Bed Temperature and Elongation` = "images/bed3.png",
+           `Print Speed and Roughness` = "images/speedp1.png",
+           `Print Speed and Tension Strength` = "images/speedp2.png",
+           `Print Speed and Elongation` = "images/speedp3.png",
+           `Material and Roughness` = "images/material1.png",
+           `Material and Tension Strength` = "images/material2.png",
+           `Material and Elongation` = "images/material3.png",
+           `Fan Speed and Roughness` = "images/speedf1.png",
+           `Fan Speed and Tension Strength` = "images/speedf2.png",
+           `Fan Speed and Elongation` = "images/speedf3.png")
 ```
 
-Each factor has its own unique effect on the strength and quality of the 3D print.
 
-```{r}
-bsselect(plots, type = "img", show_tick = TRUE)
+```{r, echo = FALSE}
+bsselect(plots, type = "img", show_tick = TRUE, live_search = FALSE)
 ```
 

@@ -1,0 +1,85 @@
+---
+title: "Impact of Bed Temperature on Strength of Final Print"
+description: |
+  These graphs will discuss the impact that the bed temperature will have on a 3D print.
+author:
+  - name: Anmay Gupta
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(dplyr)
+library(knitr)
+library(rmarkdown)
+library(plotly)
+```
+
+[What is bed temperature?](https://all3dp.com/2/3d-slicer-settings-3d-printer/#temperature)
+
+```{r select_data}
+data <- read_rds("data.rds")
+clean_data <- data %>%
+                select(bed_temperature, roughness, material, tension_strength, elongation) %>%
+                arrange(bed_temperature) %>% 
+                mutate(trial_number = row_number()) %>%
+                mutate(is_rough = roughness > 200)
+```
+
+Effect of Bed Temperature on Roughness:
+
+```{r roughness}
+roughness <- clean_data %>%
+               ggplot(aes(x = trial_number, y = roughness, fill = bed_temperature)) +
+               geom_col() +
+               facet_wrap(~ material) +
+               geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
+               labs(title = "Effect of Bed Temperature on Roughness",
+                    subtitle = "When the bed temperature is higher, the printer is less\nlikely to make mistakes and create a rougher surface.",
+                    x = "Trial Number",
+                    y = "Roughness (µm)",
+                    fill = "Bed Temperature (mm)",
+                    caption = "Source: Selcuk University, February 26th 2019")
+roughness
+ggsave("images/bed1.png", roughness)
+```
+
+Effect on Tension Strength:
+
+```{r tension}
+tension <- clean_data %>%
+             ggplot(aes(x = trial_number, y = tension_strength, fill = bed_temperature)) +
+             geom_col() +
+             facet_wrap(~ material) +
+             geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
+             labs(title = "Effect of Bed Temperature on Tension Strength",
+                    subtitle = "When the bed temperature is higher, the print is less likely to\nsustain a high load.",
+                  x = "Trial Number",
+                  y = "Tension Strength (MPa)",
+                  fill = "Bed Temperature (mm)",
+                  caption = "Source: Selcuk University, February 26th 2019")
+tension
+ggsave("images/bed2.png", tension)
+```
+
+Effect on Elongation:
+
+```{r elongation}
+elongon <- clean_data %>%
+             ggplot(aes(x = trial_number, y = elongation, fill = bed_temperature)) +
+             geom_col() +
+             facet_wrap(~ material) +
+             geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
+             labs(title = "Effect of Bed Temperature on Elongation Percentage",
+                  subtitle = "When the bed temperature is higher, the print is less likely to\nelongate and deform.",
+                  x = "Trial Number",
+                  y = "Elongation (%)",
+                  fill = "Bed Temperature (mm)",
+                  caption = "Source: Selcuk University, February 26th 2019")
+elongon
+ggsave("images/bed3.png", elongon)
+```
+
+

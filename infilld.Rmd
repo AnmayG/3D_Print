@@ -41,7 +41,7 @@ roughness <- clean_data %>%
                     subtitle = "When the infill density is at 50%, the printer is more\nlikely to make mistakes and create a rougher surface.",
                     x = "Trial Number",
                     y = "Roughness (µm)",
-                    fill = "Infill Density (mm)",
+                    fill = "Infill Density (%)",
                     caption = "Source: Selcuk University, February 26th 2019")
 roughness
 ggsave("images/infilld1.png", roughness)
@@ -59,7 +59,7 @@ tension <- clean_data %>%
                     subtitle = "When the infill density is higher, the print is more likely to\nsustain a high load.",
                   x = "Trial Number",
                   y = "Tension Strength (MPa)",
-                  fill = "Infill Density (mm)",
+                  fill = "Infill Density (%)",
                   caption = "Source: Selcuk University, February 26th 2019")
 tension
 ggsave("images/infilld2.png", tension)
@@ -77,7 +77,7 @@ elongon <- clean_data %>%
                   subtitle = "When the infill density is higher, the print is more likely to\nelongate and deform.",
                   x = "Trial Number",
                   y = "Elongation (%)",
-                  fill = "Infill Density (mm)",
+                  fill = "Infill Density (%)",
                   caption = "Source: Selcuk University, February 26th 2019")
 elongon
 ggsave("images/infilld3.png", elongon)

@@ -21,4 +21,14 @@ navbar:
         href: infillp.html
       - text: "Nozzle Temperature"
         href: nozzle.html
+      - text: "Bed Temperature"
+        href: bed.html
+      - text: "Print Speed"
+        href: speedp.html
+      - text: "Material"
+        href: material.html
+      - text: "Fan Speed"
+        href: speedf.html
+    - text: "Data"
+      href: data_article.html
 output: distill::distill_article

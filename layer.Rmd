@@ -17,7 +17,7 @@ library(rmarkdown)
 library(plotly)
 ```
 
-Explanation as to what layer height actually is.
+[What is layer height?](https://all3dp.com/2/3d-slicer-settings-3d-printer/#layer-height)
 
 ```{r select_data}
 data <- read_rds("data.rds")

@@ -40,7 +40,7 @@ roughness <- clean_data %>%
                     subtitle = "With a honeycomb infill pattern, PLA prints become more rough.",
                     x = "Trial Number",
                     y = "Roughness (µm)",
-                    fill = "Infill Pattern (mm)",
+                    fill = "Infill Pattern",
                     caption = "Source: Selcuk University, February 26th 2019")
 roughness
 ggsave("images/infillp1.png", roughness)
@@ -57,7 +57,7 @@ tension <- clean_data %>%
                     subtitle = "With a honeycomb infill pattern, PLA prints become stronger.",
                   x = "Trial Number",
                   y = "Tension Strength (MPa)",
-                  fill = "Infill Pattern (mm)",
+                  fill = "Infill Pattern",
                   caption = "Source: Selcuk University, February 26th 2019")
 tension
 ggsave("images/infillp2.png", tension)
@@ -74,7 +74,7 @@ elongon <- clean_data %>%
                   subtitle = "The infill pattern does not affect elongation.",
                   x = "Trial Number",
                   y = "Elongation (%)",
-                  fill = "Infill Pattern (mm)",
+                  fill = "Infill Pattern",
                   caption = "Source: Selcuk University, February 26th 2019")
 elongon
 ggsave("images/infillp3.png", elongon)

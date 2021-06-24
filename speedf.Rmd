@@ -1,0 +1,86 @@
+---
+title: "Impact of Fan Speed on Strength of Final Print"
+description: |
+  These graphs will discuss the impact that the fan speed will have on a 3D print.
+author:
+  - name: Anmay Gupta
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(dplyr)
+library(knitr)
+library(rmarkdown)
+library(plotly)
+```
+
+
+Explanation as to what fan speed actually is.
+
+```{r select_data}
+data <- read_rds("data.rds")
+clean_data <- data %>%
+                select(fan_speed, roughness, material, tension_strength, elongation) %>%
+                arrange(fan_speed) %>% 
+                mutate(trial_number = row_number()) %>%
+                mutate(is_rough = roughness > 200)
+```
+
+Effect of Fan Speed on Roughness:
+
+```{r roughness}
+roughness <- clean_data %>%
+               ggplot(aes(x = trial_number, y = roughness, fill = fan_speed)) +
+               geom_col() +
+               facet_wrap(~ material) +
+               geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
+               labs(title = "Effect of Fan Speed on Roughness",
+                    subtitle = "When the fan speed is higher, the printer is more\nlikely to make mistakes and create a rougher surface.",
+                    x = "Trial Number",
+                    y = "Roughness (µm)",
+                    fill = "Fan Speed (%)",
+                    caption = "Source: Selcuk University, February 26th 2019")
+roughness
+ggsave("images/speedf1.png", roughness)
+```
+
+Effect on Tension Strength:
+
+```{r tension}
+tension <- clean_data %>%
+             ggplot(aes(x = trial_number, y = tension_strength, fill = fan_speed)) +
+             geom_col() +
+             facet_wrap(~ material) +
+             geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
+             labs(title = "Effect of Fan Speed on Tension Strength",
+                    subtitle = "When the fan speed is higher, the print is less likely to\nsustain a high load.",
+                  x = "Trial Number",
+                  y = "Tension Strength (MPa)",
+                  fill = "Fan Speed (%)",
+                  caption = "Source: Selcuk University, February 26th 2019")
+tension
+ggsave("images/speedf2.png", tension)
+```
+
+Effect on Elongation:
+
+```{r elongation}
+elongon <- clean_data %>%
+             ggplot(aes(x = trial_number, y = elongation, fill = fan_speed)) +
+             geom_col() +
+             facet_wrap(~ material) +
+             geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
+             labs(title = "Effect of Fan Speed on Elongation Percentage",
+                  subtitle = "When the fan speed is higher, the print is less likely to\nelongate and deform.",
+                  x = "Trial Number",
+                  y = "Elongation (%)",
+                  fill = "Fan Speed (%)",
+                  caption = "Source: Selcuk University, February 26th 2019")
+elongon
+ggsave("images/speedf3.png", elongon)
+```
+
+
