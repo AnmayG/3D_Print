@@ -74,7 +74,7 @@ elongon <- clean_data %>%
              facet_wrap(~ material) +
              geom_smooth(method = "loess", formula = "y ~ x", se = FALSE) + 
              labs(title = "Effect of Infill Density on Elongation Percentage",
-                  subtitle = "When the infill density is higher, the print is more likely to\elongate and deform.",
+                  subtitle = "When the infill density is higher, the print is more likely to\nelongate and deform.",
                   x = "Trial Number",
                   y = "Elongation (%)",
                   fill = "Infill Density (mm)",

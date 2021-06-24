@@ -6,15 +6,15 @@
       "description": "Some additional details about the website",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-06-24T17:34:10-05:00"
+      "last_modified": "2021-06-24T17:37:37-05:00"
     },
     {
       "path": "index.html",
       "title": "3D Print Analysis",
       "description": "This project examines the factors that can increase the strength and quality of a 3D print.\n",
       "author": [],
-      "contents": "\r\nThis is essentially an animation of the data and how every setting can create a change in the final product’s strength. Columns to the right of the line are properties of the print while columns to the left are the settings that constructed the print.\r\n\r\n\r\n\r\n\r\n\r\n\r\nEach factor has its own unique effect on the strength and quality of the 3D print.\r\n\r\n\r\n\r\nLayer Height and RoughnessLayer Height and Tension StrengthLayer Height and ElongationWall Thickness and RoughnessWall Thickness and Tension StrengthWall Thickness and Elongation$(document).ready(function(){\r\n                 $(\"#Uy8KtU7w4H\").change(function(){\r\n                 $(\"img[name=9JT6oTHPEA]\").attr(\"src\",$(this).val());\r\n\r\n                 });\r\n\r\n  });\r\n{\"x\":[],\"evals\":[],\"jsHooks\":[]}\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-06-24T17:22:22-05:00"
+      "contents": "\r\nThis is essentially an animation of the data and how every setting can create a change in the final product’s strength. Columns to the right of the line are properties of the print while columns to the left are the settings that constructed the print.\r\n\r\n\r\n\r\n\r\n\r\n\r\nEach factor has its own unique effect on the strength and quality of the 3D print.\r\n\r\n\r\n\r\nLayer Height and RoughnessLayer Height and Tension StrengthLayer Height and ElongationWall Thickness and RoughnessWall Thickness and Tension StrengthWall Thickness and Elongation$(document).ready(function(){\r\n                 $(\"#fePcHt5nQU\").change(function(){\r\n                 $(\"img[name=mYzUELaY4g]\").attr(\"src\",$(this).val());\r\n\r\n                 });\r\n\r\n  });\r\n{\"x\":[],\"evals\":[],\"jsHooks\":[]}\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-06-24T17:37:41-05:00"
     },
     {
       "path": "infilld.html",
@@ -28,7 +28,7 @@
       ],
       "date": "`r Sys.Date()`",
       "contents": "\r\nExplanation as to what infill density actually is.\r\n\r\n\r\n\r\nEffect of Infill Density on Roughness:\r\n\r\n\r\n\r\nEffect on Tension Strength:\r\n\r\n\r\n\r\nEffect on Elongation:\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-06-24T17:34:10-05:00"
+      "last_modified": "2021-06-24T17:37:43-05:00"
     },
     {
       "path": "layer.html",
@@ -42,7 +42,7 @@
       ],
       "date": "`r Sys.Date()`",
       "contents": "\r\nExplanation as to what layer height actually is.\r\n\r\n\r\n\r\nEffect of Layer Height on Roughness:\r\n\r\n\r\n\r\nEffect on Tension Strength:\r\n\r\n\r\n\r\nEffect on Elongation:\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-06-24T17:07:00-05:00"
+      "last_modified": "2021-06-24T17:37:44-05:00"
     },
     {
       "path": "wall.html",
@@ -56,7 +56,7 @@
       ],
       "date": "`r Sys.Date()`",
       "contents": "\r\nExplanation as to what wall thickness actually is.\r\n\r\n\r\n\r\nEffect of Wall Thickness on Roughness:\r\n\r\n\r\n\r\nEffect on Tension Strength:\r\n\r\n\r\n\r\nEffect on Elongation:\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-06-24T17:08:12-05:00"
+      "last_modified": "2021-06-24T17:37:46-05:00"
     }
   ],
   "collections": []
