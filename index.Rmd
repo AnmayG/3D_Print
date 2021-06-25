@@ -22,7 +22,6 @@ library(plotly)
 library(bsselectR)
 ```
 
-<text size = "15">
 3D printing is one of the coolest high-tech products there is, and it's revolutionized our world.
 
 So what actually makes a 3D print strong?
@@ -41,7 +40,6 @@ Currently, the best print uses:
 * And 75% Fan Speed
 
 If you're looking for pure tension strength, having a lower layer height and a high infill density is the best because they allow you to 
-</text>
 
 ```{r pull_and_save, include = FALSE}
 plots <- c(`Layer Height and Roughness` = "images/layer1.png",

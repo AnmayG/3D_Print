@@ -31,3 +31,5 @@ paged_table(data_thing)
 ```
 
 This makes up the data of my project, and I'll be going into it in more depth later.
+
+You can find the source of my data [here](https://www.kaggle.com/afumetto/3dprinter?select=data.csv) and [here](https://www.kaggle.com/vinaynomula/3d-printer-material-dataset).
