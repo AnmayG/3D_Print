@@ -2034,25 +2034,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-  <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-  <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-  <style>h1 {font-size: 34px;}
-         h1.title {font-size: 38px;}
-         h2 {font-size: 30px;}
-         h3 {font-size: 24px;}
-         h4 {font-size: 18px;}
-         h5 {font-size: 16px;}
-         h6 {font-size: 12px;}
-         code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-         pre:not([class]) { background-color: white }</style>
-  <script src="site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
-  <link href="site_libs/bootstrap-select-1.12.1/dist/css/bootstrap-select.min.css" rel="stylesheet" />
-  <script src="site_libs/bootstrap-select-1.12.1/dist/js/bootstrap-select.min.js"></script>
-  <script src="site_libs/bsselect-binding-0.1.0/bsselect.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2090,6 +2071,7 @@ Graphs
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
+<a href="graphs_data.html">Total</a>
 <a href="layer.html">Layer Height</a>
 <a href="wall.html">Wall Thickness</a>
 <a href="infilld.html">Infill Density</a>
@@ -2124,49 +2106,17 @@ Graphs
 <p>3D printing is one of the coolest high-tech products there is, and it’s revolutionized our world.</p>
 <p>So what actually makes a 3D print strong?</p>
 <p>After examining the data, we found that each factor has its own unique effect on the strength and quality of the 3D print.</p>
-<p>Currently, the best print uses: * 0.06 mm Layer Height * 5 mm Wall Thickness * 90% Infill Density * A Grid Infill Pattern * 215°C Nozzle Temperature * 95°C Bed Temperature * 60 mm/s Print Speed * PLA Filament * And 75% Fan Speed</p>
-<div class="layout-chunk" data-layout="l-body">
-
-<html>
-<select id="evG3ra9P1B" class="selectpicker" data-dropdown-align-right="false" data-dropup-auto="true" data-header="false" data-live-search="false" data-live-search-style="contains" data-show-tick="true" data-width="false" data-size="auto"><option value="images/layer1.png">Layer Height and Roughness</option>
-<option value="images/layer2.png">Layer Height and Tension Strength</option>
-<option value="images/layer3.png">Layer Height and Elongation</option>
-<option value="images/wall1.png">Wall Thickness and Roughness</option>
-<option value="images/wall2.png">Wall Thickness and Tension Strength</option>
-<option value="images/wall3.png">Wall Thickness and Elongation</option>
-<option value="images/infilld1.png">Infill Density and Roughness</option>
-<option value="images/infilld2.png">Infill Density and Tension Strength</option>
-<option value="images/infilld3.png">Infill Density and Elongation</option>
-<option value="images/infillp1.png">Infill Pattern and Roughness</option>
-<option value="images/infillp2.png">Infill Pattern and Tension Strength</option>
-<option value="images/infillp3.png">Infill Pattern and Elongation</option>
-<option value="images/nozzle1.png">Nozzle Temperature and Roughness</option>
-<option value="images/nozzle2.png">Nozzle Temperature and Tension Strength</option>
-<option value="images/nozzle3.png">Nozzle Temperature and Elongation</option>
-<option value="images/bed1.png">Bed Temperature and Roughness</option>
-<option value="images/bed2.png">Bed Temperature and Tension Strength</option>
-<option value="images/bed3.png">Bed Temperature and Elongation</option>
-<option value="images/speedp1.png">Print Speed and Roughness</option>
-<option value="images/speedp2.png">Print Speed and Tension Strength</option>
-<option value="images/speedp3.png">Print Speed and Elongation</option>
-<option value="images/material1.png">Material and Roughness</option>
-<option value="images/material2.png">Material and Tension Strength</option>
-<option value="images/material3.png">Material and Elongation</option>
-<option value="images/speedf1.png">Fan Speed and Roughness</option>
-<option value="images/speedf2.png">Fan Speed and Tension Strength</option>
-<option value="images/speedf3.png">Fan Speed and Elongation</option></select>
-<img src="images/layer1.png" name="gLyuyXhGQk" height="500" width="100%"/>
-<script>$(document).ready(function(){
-                 $("#evG3ra9P1B").change(function(){
-                 $("img[name=gLyuyXhGQk]").attr("src",$(this).val());
-
-                 });
-
-  });</script>
-</html>
-<div id="htmlwidget-6c4180e4ab9fc761c17c" style="width:624px;height:384px;" class="bsselect html-widget" width="624" height="384"></div>
-<script type="application/json" data-for="htmlwidget-6c4180e4ab9fc761c17c">{"x":[],"evals":[],"jsHooks":[]}</script>
-</div>
+<p>Currently, the best print uses:<br />
+* 0.06 mm Layer Height<br />
+* 5 mm Wall Thickness<br />
+* 90% Infill Density<br />
+* A Grid Infill Pattern<br />
+* 215°C Nozzle Temperature<br />
+* 95°C Bed Temperature<br />
+* 60 mm/s Print Speed<br />
+* PLA Filament<br />
+* And 75% Fan Speed</p>
+<p>You can see the main graph in the “Graphs” section.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

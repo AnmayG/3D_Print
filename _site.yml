@@ -11,6 +11,8 @@ navbar:
       href: about.html
     - text: "Graphs"
       menu:
+      - text: "Total"
+        href: graphs_data.html
       - text: "Layer Height"
         href: layer.html
       - text: "Wall Thickness"

@@ -1,0 +1,58 @@
+---
+title: "Total Graph"
+description: |
+  This is the combination of all of the graphs.
+author:
+  - name: Anmay Gupta
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(dplyr)
+library(knitr)
+library(rmarkdown)
+library(plotly)
+library(bsselectR)
+```
+
+```{r pull_and_save, include = FALSE}
+plots <- c(`Layer Height and Roughness` = "images/layer1.png",
+           `Layer Height and Tension Strength` = "images/layer2.png",
+           `Layer Height and Elongation` = "images/layer3.png",
+           `Wall Thickness and Roughness` = "images/wall1.png",
+           `Wall Thickness and Tension Strength` = "images/wall2.png",
+           `Wall Thickness and Elongation` = "images/wall3.png",
+           `Infill Density and Roughness` = "images/infilld1.png",
+           `Infill Density and Tension Strength` = "images/infilld2.png",
+           `Infill Density and Elongation` = "images/infilld3.png",
+           `Infill Pattern and Roughness` = "images/infillp1.png",
+           `Infill Pattern and Tension Strength` = "images/infillp2.png",
+           `Infill Pattern and Elongation` = "images/infillp3.png",
+           `Nozzle Temperature and Roughness` = "images/nozzle1.png",
+           `Nozzle Temperature and Tension Strength` = "images/nozzle2.png",
+           `Nozzle Temperature and Elongation` = "images/nozzle3.png",
+           `Bed Temperature and Roughness` = "images/bed1.png",
+           `Bed Temperature and Tension Strength` = "images/bed2.png",
+           `Bed Temperature and Elongation` = "images/bed3.png",
+           `Print Speed and Roughness` = "images/speedp1.png",
+           `Print Speed and Tension Strength` = "images/speedp2.png",
+           `Print Speed and Elongation` = "images/speedp3.png",
+           `Material and Roughness` = "images/material1.png",
+           `Material and Tension Strength` = "images/material2.png",
+           `Material and Elongation` = "images/material3.png",
+           `Fan Speed and Roughness` = "images/speedf1.png",
+           `Fan Speed and Tension Strength` = "images/speedf2.png",
+           `Fan Speed and Elongation` = "images/speedf3.png")
+```
+
+
+```{r, echo = FALSE}
+bsselect(plots, type = "img", show_tick = TRUE, live_search = FALSE)
+```
+
+
+
+
