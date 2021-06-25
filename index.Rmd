@@ -24,11 +24,12 @@ library(bsselectR)
 
 3D printing is one of the coolest high-tech products there is, and it's revolutionized our world.
 
-So what actually makes a 3D print strong?
+## So what actually makes a 3D print strong?
 
 After examining the data, we found that each factor has its own unique effect on the strength and quality of the 3D print.
 
 Currently, the best print uses:  
+
 * 0.06 mm Layer Height  
 * 5 mm Wall Thickness  
 * 90% Infill Density  
