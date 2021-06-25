@@ -39,8 +39,6 @@ Currently, the best print uses:
 * PLA Filament
 * And 75% Fan Speed
 
-If you're looking for pure tension strength, having a lower layer height and a high infill density is the best because they allow you to 
-
 ```{r pull_and_save, include = FALSE}
 plots <- c(`Layer Height and Roughness` = "images/layer1.png",
            `Layer Height and Tension Strength` = "images/layer2.png",
